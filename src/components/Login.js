@@ -7,19 +7,22 @@ function Login({ token }) {
   const lpasswordRef = useRef("");
   const hello = useHistory();
   const ctx = useContext(AuthContext);
-  const inSubmitHandler = async (event) => {
+  const inSubmitHandler = (event) => {
     event.preventDefault();
     const validData = {
       email: lemailRef.current.value,
       password: lpasswordRef.current.value,
     };
-    try {
-      await ctx.onLogin(validData);
-      hello.push("/profile");
-    } catch (e) {
-      console.log(e);
-      hello.push("/login");
-    }
+    ctx
+      .onLogin(validData)
+      .then((res) => {
+        console.log("hello");
+        hello.push("/profile");
+      })
+      .catch((e) => {
+        console.log(e);
+        hello.push("/login");
+      });
   };
   return (
     <Card>

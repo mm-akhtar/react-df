@@ -32,11 +32,10 @@ export const AuthContextProvide = (props) => {
     try {
       const response = await axios.post("/users", data);
       const Btoken = response.data.token;
-      console.log(Btoken);
       localStorage.setItem("isLoggedIn", Btoken);
       setIsLoggedIn(true);
     } catch (e) {
-      console.log(e.message);
+      throw new Error(e.message);
     }
   };
   const loginHandler = async (validData) => {
@@ -46,7 +45,7 @@ export const AuthContextProvide = (props) => {
       localStorage.setItem("isLoggedIn", Btoken);
       setIsLoggedIn(true);
     } catch (e) {
-      console.log(e.message);
+      throw new Error(e.message);
     }
   };
 

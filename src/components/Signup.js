@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from "react";
 import AuthContext from "../store/authContext";
 import Card from "./UI/Card";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import axios from "../axios";
 
 function Signup() {
@@ -12,6 +12,7 @@ function Signup() {
   const ageRef = useRef("");
   const addressRef = useRef("");
   const phoneRef = useRef("");
+  const history = useHistory();
   // useEffect(() => {
   //   const data = {
   //     username: "",
@@ -61,8 +62,13 @@ function Signup() {
       address: addressRef.current.value,
       phone: phoneRef.current.value,
     };
-    await ctx.onSignup(data);
-    console.log("good");
+    try {
+      await ctx.onSignup(data);
+      history.push("/profile");
+    } catch (e) {
+      console.log(e);
+      history.push("/signup");
+    }
   };
 
   return (
