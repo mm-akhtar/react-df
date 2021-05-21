@@ -1,38 +1,130 @@
 .App {
+  color: white;
+  display: grid;
+}
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  width: 90%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li a:hover:not(.active) {
+  background-color: #111;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.new-expense__actions {
+  text-align: right;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #40005d;
+  background-color: #40005d;
+  color: white;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+button:hover,
+button:active {
+  background-color: #510674;
+  border-color: #510674;
+}
+
+.new-expense__controls {
+  display: block;
+  margin-bottom: 1rem;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-left: auto;
   color: white;
+  align-items: right;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+img {
+  width: 130%;
+  height: 100%;
+  max-width: 200%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h4 {
+  background-color: rgb(51, 43, 42);
+  padding: 0.6rem;
+  border-radius: 0.3rem;
+  font-size: medium;
+  display: flex;
+  margin: 1.2rem;
+}
+
+h4 span {
+  position: initial;
+  width: 100px;
+  display: block;
+  justify-content: right;
+  align-items: right;
+}
+
+h4:hover {
+  background-color: rgb(39, 38, 38);
+}
+
+.header {
+  position: relative;
+  width: 320px;
+  height: 100px;
+  padding: 0;
+}
+.cover {
+  width: 77%;
+  height: 80vh;
+}
+.cover img {
+  opacity: 0.5;
+}
+.overlay {
+  position: absolute;
+  top: 37%;
+  width: 79%;
+  text-align: center;
+  font-size: 3em;
 }
